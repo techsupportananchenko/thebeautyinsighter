@@ -1,0 +1,31 @@
+# Maps
+assets/css/*.map
+
+# Apache
+.htaccess
+.htpasswd
+
+# WordPress
+wp-config.php
+wp-content/*
+!wp-content/mu-plugins/
+!wp-content/plugins/
+!wp-content/themes/
+!wp-content/mu-plugins/*
+!wp-content/mu-plugins/wld-plugins/
+!wp-content/mu-plugins/0-wld-plugins.php
+*.sql
+
+# Node.js
+node_modules/
+.idea/
+
+package.json
+
+# WPE and Local
+.wpe-pull-ignore
+.wpe-push-ignore
+apple-touch-icon.png
+apple-touch-icon-precomposed.png
+favicon.ico
+local-xdebuginfo.php
