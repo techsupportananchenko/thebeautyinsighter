@@ -1,0 +1,19 @@
+//Includes
+@use "components/button";
+@use 'sections/header';
+@use 'sections/footer';
+
+.hero {
+  &__container {
+    &:before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 50%;
+      left: 0;
+      top: 0;
+      background: #001919B2;
+      backdrop-filter: blur(18.899999618530273px)
+    }
+  }
+}

@@ -1,0 +1,20 @@
+// Mixin for media queries by screen size (in px)
+@mixin respond-from($size) {
+  @if $size {
+    @media (min-width: $size) {
+      @content;
+    }
+  } @else {
+    @warn "No value found for breakpoint `#{$size}`.";
+  }
+}
+
+@mixin respond-to($size) {
+  @if $size {
+    @media (max-width: $size) {
+      @content;
+    }
+  } @else {
+    @warn "No value found for breakpoint `#{$size}`.";
+  }
+}

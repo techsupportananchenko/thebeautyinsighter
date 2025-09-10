@@ -1,0 +1,29 @@
+.bi-button {
+  a {
+    border: 1px solid;
+    transition: all 0.3s;
+    border-radius: 0;
+  }
+
+  &__white {
+    a {
+      background: #fff !important;
+      color: #000 !important;
+      border-color: #fff;
+    }
+
+    &:hover {
+
+      a {
+        background: transparent !important;
+        color: #fff !important;
+      }
+    }
+  }
+
+  &:hover {
+    a {
+      transition: all 0.3s;
+    }
+  }
+}

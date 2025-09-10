@@ -1,0 +1,75 @@
+@use "../mixins" as *;
+
+#Header {
+
+  @include respond-to(1240px) {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu_wrapper {
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    .responsive-menu-toggle {
+      border-radius: 0;
+    }
+  }
+
+  #menu-main-menu {
+    > li {
+      > a {
+        font-family: "Archivo", sans-serif;
+        line-height: 1;
+        font-weight: 300;
+
+        > span {
+          line-height: 1;
+        }
+      }
+    }
+  }
+
+  .header-cart-total-new {
+    font-family: "Archivo", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    vertical-align: middle;
+    margin: 0;
+    padding-left: 4px;
+  }
+}
+
+#Side_slide {
+  background-color: #fff;
+
+  #menu {
+    ul {
+      li {
+        a {
+          color: #000;
+        }
+
+        &:hover {
+          a {
+            color: #000 !important;
+          }
+        }
+      }
+    }
+  }
+
+  #header_cart {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #000;
+
+    p {
+      margin: 0;
+      line-height: 1;
+    }
+  }
+}
