@@ -160,10 +160,6 @@ if ($has_cart) {
     } else {
         echo '<svg xmlns="http://www.w3.org/2000/svg" aaria-label="' . __('cart icon', 'betheme') . '" width="20" height="18" viewBox="0 0 20 18" fill="none"><path d="M1 7H2M2 7L3 17H17L18 7M2 7H6M19 7H18M18 7H14M14 7H6M14 7V5C14 3.667 13.2 1 10 1C6.8 1 6 3.667 6 5V7M10 11V13M13 11V13M7 11V13" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
     }
-
-    $total = WC()->cart->get_totals()['total'];
-    echo '<p class="header-cart-total-new">' . wc_format_decimal($total, wc_get_price_decimals()) . '</p>';
-
     echo '</a>';
 
 }

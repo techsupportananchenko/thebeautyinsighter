@@ -29,3 +29,5 @@ apple-touch-icon.png
 apple-touch-icon-precomposed.png
 favicon.ico
 local-xdebuginfo.php
+.osp/
+wp-content/themes/betheme-child/prepros.config
