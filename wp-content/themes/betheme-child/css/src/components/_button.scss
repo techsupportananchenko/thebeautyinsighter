@@ -21,6 +21,23 @@
     }
   }
 
+  &__black {
+    a {
+      background: #000 !important;
+      color: #fff !important;
+      border-color: #000;
+      padding: 16px 32px;
+    }
+
+    &:hover {
+
+      a {
+        background: transparent !important;
+        color: #000 !important;
+      }
+    }
+  }
+
   &:hover {
     a {
       transition: all 0.3s;

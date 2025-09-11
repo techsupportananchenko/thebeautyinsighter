@@ -2,18 +2,195 @@
 @use "components/button";
 @use 'sections/header';
 @use 'sections/footer';
+@use "variables" as *;
+@use "mixins" as *;
 
 .hero {
   &__container {
-    &:before {
-      content: '';
-      display: block;
-      height: 100%;
-      width: 50%;
-      left: 0;
-      top: 0;
+    @include respond-from(769px) {
+      &:before {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 50%;
+        left: 0;
+        top: 0;
+        background: #001919B2;
+        backdrop-filter: blur(18.899999618530273px);
+      }
+    }
+  }
+}
+
+.bi-hero {
+  &__content {
+    @include respond-to(768px) {
       background: #001919B2;
-      backdrop-filter: blur(18.899999618530273px)
+      backdrop-filter: blur(18.899999618530273px);
+    }
+  }
+}
+
+.be-infinite-carousel {
+  .swiper-wrapper {
+    -webkit-transition-timing-function: linear !important;
+    transition-timing-function: linear !important;
+  }
+}
+
+.bi-custom-posts-block {
+  .blog-teaser {
+    ul {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      display: grid;
+
+      @include respond-from(768px) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+      }
+
+      @include respond-from(992px) {
+        grid-template-columns: 57.5% 1fr;
+        grid-template-rows: auto auto;
+      }
+
+      li {
+        .photo-wrapper {
+          height: 100%;
+
+          img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+          }
+        }
+
+        .desc-wrapper {
+          .desc {
+            padding-bottom: 24px;
+
+            .post-meta {
+              margin: 0;
+              font-family: $archivo;
+              font-weight: 300;
+              font-size: 14px;
+              line-height: 20px;
+              display: flex;
+              align-items: center;
+              color: #BECCD3;
+
+              .date {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                padding-left: 4px;
+
+                .post-date {
+                  display: flex;
+                  align-items: center;
+                  gap: 4px;
+
+                  &:before {
+                    content: "";
+                    width: 3px;
+                    display: block;
+                    height: 3px;
+                    border-radius: 50px;
+                    background: #BECCD3;
+                  }
+                }
+              }
+
+              .author {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+
+                .icon-user {
+                  font-size: 20px;
+                }
+              }
+            }
+
+            .post-title {
+              a {
+                font-family: $archivo;
+                font-weight: 400;
+                font-size: 30px;
+                line-height: 40px;
+
+                @include respond-to(768px) {
+                  font-size: 20px;
+                  line-height: 28px;
+                }
+              }
+            }
+          }
+        }
+
+        &:nth-child(1) {
+          width: 100%;
+          grid-row: 1 / 3;
+          height: 585px;
+
+          @include respond-to(992px) {
+            grid-column: 1 / -1;
+            grid-row: 1;
+          }
+        }
+
+        &:nth-child(2) {
+          width: 100%;
+          grid-column: 2;
+          grid-row: 1;
+          height: 280px;
+
+          .desc-wrapper {
+            .desc {
+              .post-title {
+                a {
+                  font-size: 20px;
+                  line-height: 28px;
+                }
+              }
+            }
+          }
+
+          @include respond-to(992px) {
+            grid-column: 1;
+            grid-row: 2;
+          }
+        }
+
+        &:nth-child(3) {
+          width: 100%;
+          grid-column: 2;
+          grid-row: 2;
+          height: 280px;
+
+          .desc-wrapper {
+            .desc {
+              .post-title {
+                a {
+                  font-size: 20px;
+                  line-height: 28px;
+                }
+              }
+            }
+          }
+        }
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3) {
+          @include respond-to(768px) {
+            grid-column: 1;
+            grid-row: auto;
+            height: 240px;
+          }
+        }
+      }
     }
   }
 }

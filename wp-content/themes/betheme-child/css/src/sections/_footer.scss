@@ -1,13 +1,28 @@
 @use "../variables" as *;
 @use "../mixins" as *;
 #Footer {
+  .widgets_wrapper {
+    padding: 0;
+  }
+
   .footer_copy {
+    .one {
+      padding-top: 19px;
+      margin-bottom: 5px;
+
+      .mcb-column-inner {
+        margin-bottom: 0;
+      }
+    }
     .copyright {
+      float: unset;
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
       flex-direction: column;
+      max-width: 1344px;
+      margin: 0 auto;
 
       @include respond-from(1240px) {
         flex-direction: row;
@@ -15,6 +30,23 @@
 
       p {
         margin: 0;
+        font-family: $archivo;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: right;
+        vertical-align: middle;
+        color: #C9C9C9;
+      }
+
+      a {
+        font-family: $archivo;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: right;
+        vertical-align: middle;
+        color: #C9C9C9;
       }
     }
   }
@@ -22,7 +54,10 @@
 .bi-footer {
   &__container {
     display: grid;
-    gap: 50px 25px;
+    gap: 50px 24px;
+    max-width: 1344px;
+    margin: 0 auto;
+    padding-top: 29px;
 
     @include respond-from(768px) {
       grid-template-columns: repeat(3, 1fr);
@@ -41,7 +76,7 @@
     font-size: 20px; 
     line-height: 150%;
     vertical-align: middle;
-    padding-bottom: 21px;
+    padding-bottom: 16px;
     align-items: center;
 
     @include respond-from(320px) {
@@ -60,12 +95,19 @@
     font-weight: 300;
     font-size: 16px;
     line-height: 24px;
+    color: #DFDADA;
   }
 
   &__content {
     font-family: $archivo;
     p {
       margin: 0;
+      font-family: $archivo;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      vertical-align: middle;
+      color: #C9C9C9;
     }
   }
 
@@ -76,12 +118,14 @@
       gap: 8px;
 
       li {
+        line-height: 1;
         a {
           font-family: $archivo;
           font-weight: 300;
           font-size: 16px;
           line-height: 24px;
           vertical-align: middle;
+          color: #C9C9C9;
         }
       }
     }
