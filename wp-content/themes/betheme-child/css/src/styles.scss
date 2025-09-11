@@ -2,6 +2,7 @@
 @use "components/button";
 @use 'sections/header';
 @use 'sections/footer';
+@use "variables" as *;
 
 .hero {
   &__container {
@@ -14,6 +15,70 @@
       top: 0;
       background: #001919B2;
       backdrop-filter: blur(18.899999618530273px)
+    }
+  }
+}
+
+.be-infinite-carousel {
+  .swiper-wrapper {
+    -webkit-transition-timing-function: linear !important;
+    transition-timing-function: linear !important;
+  }
+}
+
+.bi-custom-posts-block {
+  .blog-teaser {
+    ul {
+      li {
+        .photo-wrapper {
+          height: 100%;
+
+          img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+          }
+        }
+
+        .desc-wrapper {
+          .desc {
+            padding-bottom: 24px;
+
+            .post-meta {
+              margin: 0;
+              font-family: $archivo;
+              font-weight: 300;
+              font-size: 14px;
+              line-height: 20px;
+            }
+
+            .post-title {
+              a {
+                font-family: $archivo;
+                font-weight: 400;
+                font-size: 30px;
+                line-height: 40px;
+              }
+            }
+          }
+        }
+
+        &:nth-child(1) {
+          width: 100%;
+          max-width: 775px;
+          height: 585px;
+        }
+
+        &:nth-child(2), &:nth-child(3) {
+          width: 100%;
+          max-width: 545px;
+          height: 280px;
+        }
+
+        &:nth-child(3) {
+          margin-top: 24px;
+        }
+      }
     }
   }
 }
