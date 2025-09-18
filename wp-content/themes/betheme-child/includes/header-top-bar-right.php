@@ -23,7 +23,21 @@ if (isset($woocommerce) && function_exists('is_woocommerce')) {
 
 $shop_icons_hide = mfn_opts_get('shop-icons-hide');
 
-$wishlist_icon = trim(mfn_opts_get('shop-icon-wishlist') ?? '');
+// shop user
+
+if( $has_shop && empty( $shop_icons_hide['user'] ) ){
+	$has_user = true;
+}
+
+$user_icon = trim( mfn_opts_get('shop-user') ?? '' );
+
+// shop wishlist
+
+if( $has_shop && empty( $shop_icons_hide['wishlist'] ) && mfn_opts_get('shop-wishlist') && mfn_opts_get('shop-wishlist-page') ){
+	$has_wishlist = true;
+}
+
+$wishlist_icon = trim( mfn_opts_get('shop-icon-wishlist') ?? '' );
 
 // shop cart
 
@@ -114,27 +128,11 @@ if ($has_user || $has_wishlist || $has_cart || $header_search || $action_link ||
         }
 
         echo '<a class="top-bar-right-icon myaccount_button top-bar-right-icon-user toggle-login-modal ' . esc_attr($modal_type) . ' ' . (is_user_logged_in() ? 'logged-in' : 'logged-out') . '" href="' . get_permalink(get_option('woocommerce_myaccount_page_id')) . '">';
-        if (is_user_logged_in() && get_option('show_avatars') == 1 && get_option('avatar_default') != 'blank') {
-            $current_user = wp_get_current_user();
-            echo get_avatar($current_user->ID, 32);
-        } else {
-            mfn_user_icon($user_icon);
+        if (is_user_logged_in()) {
+            echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"> <path d="M12.0004 12.8001C14.2648 12.8001 16.1004 10.9645 16.1004 8.7001C16.1004 6.43573 14.2648 4.6001 12.0004 4.6001C9.73602 4.6001 7.90039 6.43573 7.90039 8.7001C7.90039 10.9645 9.73602 12.8001 12.0004 12.8001Z" stroke="white" stroke-width="1.5"/> <path d="M18.5098 17.1V19.41H5.50977V17.1C5.50977 14.73 8.42977 12.8 12.0198 12.8C15.6098 12.8 18.5098 14.73 18.5098 17.1Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/> </svg>';
         }
         echo '</a>';
 
-    }
-
-    // shop wishlist
-
-    if ($has_wishlist) {
-        echo '<a id="wishlist_button" class="top-bar-right-icon top-bar-right-icon-wishlist" href="' . get_permalink(mfn_opts_get('shop-wishlist-page')) . '">';
-        if ($wishlist_icon) {
-            echo '<i class="' . $wishlist_icon . '" aria-label="' . __('wishlist icon', 'betheme') . '"></i>';
-        } else {
-            echo '<svg width="26" viewBox="0 0 26 26" aria-label="' . __('wishlist icon', 'betheme') . '"><defs><style>.path{fill:none;stroke:#333;stroke-width:1.5px;}</style></defs><path class="path" d="M16.7,6a3.78,3.78,0,0,0-2.3.8A5.26,5.26,0,0,0,13,8.5a5,5,0,0,0-1.4-1.6A3.52,3.52,0,0,0,9.3,6a4.33,4.33,0,0,0-4.2,4.6c0,2.8,2.3,4.7,5.7,7.7.6.5,1.2,1.1,1.9,1.7H13a.37.37,0,0,0,.3-.1c.7-.6,1.3-1.2,1.9-1.7,3.4-2.9,5.7-4.8,5.7-7.7A4.3,4.3,0,0,0,16.7,6Z"/></svg>';
-        }
-        echo '<span class="header-wishlist-count">0</span>';
-        echo '</a>';
     }
 
     // shop cart
