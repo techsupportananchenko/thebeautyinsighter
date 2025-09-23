@@ -24,6 +24,7 @@
 
     .woocommerce {
       padding-top: 35px;
+      padding-bottom: 110px;
     }
   }
 
@@ -75,6 +76,55 @@
       color: #376099;
     }
 
+    .woocommerce-customer-details {
+      .woocommerce-columns {
+        &--addresses {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      .woocommerce-column {
+        &--addresses {
+
+        }
+
+        &--billing-address {
+          max-width: 100%;
+          margin: 0;
+
+          .woocommerce-column__title {
+            text-align: left;
+            font-family: $archivo;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 28px;
+            text-transform: uppercase;
+          }
+
+          address {
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #E5E5E5;
+            font-family: $archivo;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 24px;
+            color: #4A4A4A;
+
+
+            p {
+              margin: 0;
+            }
+
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
     .woocommerce-info {
       .woocommerce-Button {
         background: #000;
@@ -88,14 +138,58 @@
         }
       }
     }
+
+    .woocommerce-order-details {
+      border-radius: 0;
+
+      .woocommerce-order-details__title {
+        margin-bottom: 25px;
+      }
+
+      th {
+        font-family: $archivo;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #4A4A4A;
+        padding: 0 4px;
+      }
+
+      td {
+        padding: 0 4px;
+      }
+
+      tr {
+        height: 56px;
+      }
+    }
   }
 
   // Orders tab
   .woocommerce-orders-table {
+    &.shop_table {
+      th {
+        padding: 15px 10px;
+        line-height: 1;
+      }
+    }
+
     &__cell {
-      &-order-number {
-        //display: flex;
-        align-items: center;
+      p {
+        font-family: $archivo;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        color: #4A4A4A;
+      }
+
+      &-order-actions {
+        a {
+          font-family: $archivo;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 150%;
+        }
       }
     }
 
