@@ -44,3 +44,13 @@ function mfnch_enqueue_styles()
     wp_enqueue_style('custom-style', get_stylesheet_directory_uri() .'/css/dist/styles.css', [], filemtime(get_stylesheet_directory() . '/css/dist/styles.css'));
 }
 add_action('wp_enqueue_scripts', 'mfnch_enqueue_styles', 101);
+
+/*
+ * Custom Code
+ */
+
+// remove downloads menu item from user dashboard
+add_filter( 'woocommerce_account_menu_items', function( $menu_links ) {
+    unset( $menu_links['downloads'] );
+    return $menu_links;
+}, 999 );
