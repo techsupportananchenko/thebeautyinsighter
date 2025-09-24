@@ -76,7 +76,73 @@
       color: #376099;
     }
 
+    .woocommerce-Addresses {
+      .woocommerce-Address {
+        max-width: 100%;
+        margin: 0;
+
+        .woocommerce-column__title {
+          text-align: left;
+          font-family: $archivo;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 28px;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+        }
+
+        address {
+          width: 100%;
+          padding: 20px;
+          border: 1px solid #E5E5E5;
+          font-family: $archivo;
+          font-weight: 300;
+          font-size: 16px;
+          color: #4A4A4A;
+          line-height: 32px;
+
+          p {
+            margin: 0;
+          }
+
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+
     .woocommerce-customer-details {
+      &--phone {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        br {
+          display: none;
+        }
+
+        &:before {
+          display: none;
+        }
+      }
+
+      &--email {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        br {
+          display: none;
+        }
+
+        &:before {
+          display: none;
+        }
+      }
+
       .woocommerce-columns {
         &--addresses {
           display: flex;
@@ -89,7 +155,7 @@
 
         }
 
-        &--billing-address {
+        &--billing-address, &--shipping-address {
           max-width: 100%;
           margin: 0;
 
@@ -100,6 +166,7 @@
             font-size: 20px;
             line-height: 28px;
             text-transform: uppercase;
+            margin-bottom: 20px;
           }
 
           address {
@@ -109,9 +176,8 @@
             font-family: $archivo;
             font-weight: 300;
             font-size: 16px;
-            line-height: 24px;
             color: #4A4A4A;
-
+            line-height: 32px;
 
             p {
               margin: 0;
@@ -141,6 +207,7 @@
 
     .woocommerce-order-details {
       border-radius: 0;
+      margin-bottom: 50px;
 
       .woocommerce-order-details__title {
         margin-bottom: 25px;
