@@ -1,0 +1,522 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.woocommerce-account {
+  #Subheader {
+    background: #F7F7F7;
+    padding: 48px 0;
+
+    .title {
+      font-family: $archivo;
+      font-weight: 300;
+      font-size: 60px;
+      line-height: 60px;
+      text-align: center;
+    }
+
+    .breadcrumbs {
+      margin-top: 15px;
+
+      li {
+        color: #000000;
+        font-family: $archivo;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+
+        span {
+          margin: 0 8px;
+        }
+
+        a {
+          color: #4A4A4A;
+        }
+      }
+
+      i {
+        &:before {
+          content: '/';
+          color: #000000;
+          font-family: $archivo;
+        }
+      }
+    }
+  }
+
+  #Content {
+    padding-top: 0;
+
+    .woocommerce {
+      padding-top: 35px;
+      padding-bottom: 110px;
+    }
+  }
+
+  .woocommerce-MyAccount-navigation {
+    background: #F7F7F7;
+    border-radius: 0;
+    max-width: 320px;
+    width: 100%;
+
+    @include respond-to(767px) {
+      max-width: 100%;
+    }
+
+    ul {
+      gap: 8px;
+      display: flex;
+      flex-direction: column;
+
+      li {
+        a {
+          border-radius: 0;
+          padding: 10px;
+          font-family: $archivo;
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 24px;
+
+          br {
+            display: none;
+          }
+        }
+
+        &.is-active {
+          a {
+            background: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .woocommerce-MyAccount-content {
+    font-family: $archivo;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000;
+    max-width: calc(100% - 320px);
+    width: 100%;
+    padding-left: 48px;
+
+    @include respond-to(767px) {
+      max-width: 100%;
+      padding: 0;
+    }
+
+    a {
+      color: #376099;
+    }
+
+    .woocommerce-Addresses {
+      .woocommerce-Address {
+        max-width: 100%;
+        margin: 0;
+
+        &-title {
+          padding-top: 22px;
+
+          h2 {
+            text-align: left;
+            font-family: $archivo;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 28px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+          }
+        }
+
+
+        &-block {
+          padding: 20px;
+          border: 1px solid #E5E5E5;
+
+          > a {
+            text-decoration: underline;
+          }
+
+          p {
+            margin: 0;
+          }
+        }
+
+        address {
+          width: 100%;
+          font-family: $archivo;
+          font-weight: 300;
+          font-size: 16px;
+          color: #4A4A4A;
+          line-height: 32px;
+          padding: 10px 0 0 0;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .woocommerce-customer-details {
+      &--phone {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        br {
+          display: none;
+        }
+
+        &:before {
+          display: none;
+        }
+      }
+
+      &--email {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        br {
+          display: none;
+        }
+
+        &:before {
+          display: none;
+        }
+      }
+
+      .woocommerce-columns {
+        &--addresses {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      .woocommerce-column {
+        &--addresses {
+
+        }
+
+        &--billing-address, &--shipping-address {
+          max-width: 100%;
+          margin: 0;
+
+          .woocommerce-column__title {
+            text-align: left;
+            font-family: $archivo;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 28px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+          }
+
+          address {
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #E5E5E5;
+            font-family: $archivo;
+            font-weight: 300;
+            font-size: 16px;
+            color: #4A4A4A;
+            line-height: 32px;
+
+            p {
+              margin: 0;
+            }
+
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .woocommerce-info {
+      .woocommerce-Button {
+        background: #000;
+        color: #fff;
+        border: 1px solid #000;
+        transition: all 0.3s;
+
+        &:hover {
+          background: transparent;
+          color: #000;
+        }
+      }
+    }
+
+    .woocommerce-order-details {
+      border-radius: 0;
+      margin-bottom: 50px;
+
+      .woocommerce-order-details__title {
+        margin-bottom: 25px;
+        font-family: $archivo;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 28px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      th {
+        font-family: $archivo;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #4A4A4A;
+        padding: 0 4px;
+      }
+
+      td {
+        padding: 0 4px;
+      }
+
+      tr {
+        height: 56px;
+      }
+    }
+
+    // user info form
+    .woocommerce-EditAccountForm, .woocommerce-address-fields {
+      p {
+        margin: 0;
+      }
+
+      &-block {
+        border: 1px solid #E5E5E5;
+        padding: 32px;
+        margin-bottom: 24px;
+
+        .section-title {
+          font-family: $archivo;
+          font-weight: 500;
+          font-size: 20px;
+          line-height: 28px;
+          margin-bottom: 10px;
+
+          &-social {
+            padding-top: 20px;
+          }
+        }
+
+        .password-fields {
+          legend {
+            margin-bottom: 10px;
+            padding-top: 15px;
+          }
+
+          .woocommerce-form-row {
+            padding: 10px 0;
+
+            button {
+              &:before {
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'><path d='M10.5856 10.5869C10.2105 10.9621 9.99991 11.4708 10 12.0013C10.0001 12.5317 10.2109 13.0404 10.5861 13.4154C10.9612 13.7904 11.47 14.0011 12.0004 14.001C12.5309 14.0009 13.0395 13.7901 13.4146 13.4149' stroke='black' stroke-linecap='round' stroke-linejoin='round'/><path d='M16.681 16.673C15.2782 17.5507 13.6547 18.0109 12 18C8.4 18 5.4 16 3 12C4.272 9.88003 5.712 8.32203 7.32 7.32603M10.18 6.18003C10.779 6.05876 11.3888 5.99845 12 6.00003C15.6 6.00003 18.6 8.00003 21 12C20.334 13.11 19.621 14.067 18.862 14.87' stroke='black' stroke-linecap='round' stroke-linejoin='round'/><path d='M3 3L21 21' stroke='black' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+              }
+            }
+          }
+        }
+
+        &.aktivists-checkbox {
+          fieldset {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            /* Custom checkbox */
+            .custom-checkbox .checkmark {
+              display: inline-block;
+              width: 20px;
+              height: 20px;
+              border: 1px solid #DEDEDE;
+              border-radius: 0;
+              margin-right: 10px;
+              vertical-align: middle;
+              position: relative;
+              cursor: pointer;
+            }
+
+            /* Show a checkmark when checked */
+            .custom-checkbox .woocommerce-form__input-checkbox:checked + .checkmark::after {
+              content: '';
+              position: absolute;
+              left: 6px;
+              top: 2px;
+              width: 6px;
+              height: 12px;
+              border: solid #000;
+              border-width: 0 2px 2px 0;
+              transform: rotate(45deg);
+            }
+
+            /* Align label text */
+            .custom-checkbox .checkbox-label {
+              vertical-align: middle;
+            }
+
+            label {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+            }
+
+            input {
+              display: none;
+            }
+          }
+
+          .section-title {
+            margin-bottom: 23px;
+          }
+
+          .woocommerce-form-row {
+            padding: 0;
+
+            label {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+
+      .woocommerce-form-row {
+        padding: 12px 0;
+
+        &.form-row-first, &.form-row-last {
+          max-width: calc(50% - 12px);
+          width: 100%;
+        }
+
+        em {
+          font-family: $archivo;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 20px;
+          color: #4A4A4A;
+        }
+
+        br {
+          display: none;
+        }
+      }
+
+      input, select, textarea {
+        border: 1px solid #E5E5E5;
+        color: #4A4A4A;
+        font-family: $archivo;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        border-radius: 0;
+        padding: 16px;
+      }
+
+      textarea {
+        height: 150px;
+      }
+
+      label {
+        color: #4A4A4A;
+        font-family: $archivo;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 8px;
+      }
+    }
+
+    .woocommerce-address-fields {
+      h2 {
+        font-family: $archivo;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 28px;
+        text-transform: uppercase;
+      }
+    }
+
+    .woocommerce-Button {
+      margin-top: 20px;
+      background: #000000;
+      color: #FFFFFF;
+      font-family: $archivo;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      transition: all 0.3s;
+      border: 1px solid #000;
+
+      &:hover {
+        transition: all 0.3s;
+        background: #fff;
+        color: #000;
+      }
+    }
+  }
+
+  // Orders tab
+  .woocommerce-table--order-details {
+    &.shop_table {
+      th, td {
+        color: #4A4A4A;
+        font-family: $archivo;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      thead {
+        th {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .woocommerce-orders-table {
+    &.shop_table {
+      th {
+        padding: 15px 10px;
+        line-height: 1;
+      }
+    }
+
+    &__cell {
+      p {
+        font-family: $archivo;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        color: #4A4A4A;
+      }
+
+      &-order-actions {
+        a {
+          font-family: $archivo;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 150%;
+        }
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      br {
+        display: none;
+      }
+    }
+  }
+}
