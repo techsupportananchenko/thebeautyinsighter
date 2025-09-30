@@ -21,6 +21,12 @@
     }
   }
 
+  &--full {
+    a {
+      width: 100% !important;
+    }
+  }
+
   &__black {
     a {
       background: #000 !important;

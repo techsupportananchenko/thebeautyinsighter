@@ -128,9 +128,9 @@ if ($has_user || $has_wishlist || $has_cart || $header_search || $action_link ||
         }
 
         echo '<a class="top-bar-right-icon myaccount_button top-bar-right-icon-user toggle-login-modal ' . esc_attr($modal_type) . ' ' . (is_user_logged_in() ? 'logged-in' : 'logged-out') . '" href="' . get_permalink(get_option('woocommerce_myaccount_page_id')) . '">';
-        if (is_user_logged_in()) {
+//        if (!is_user_logged_in()) {
             echo '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"> <path d="M12.0004 12.8001C14.2648 12.8001 16.1004 10.9645 16.1004 8.7001C16.1004 6.43573 14.2648 4.6001 12.0004 4.6001C9.73602 4.6001 7.90039 6.43573 7.90039 8.7001C7.90039 10.9645 9.73602 12.8001 12.0004 12.8001Z" stroke="white" stroke-width="1.5"/> <path d="M18.5098 17.1V19.41H5.50977V17.1C5.50977 14.73 8.42977 12.8 12.0198 12.8C15.6098 12.8 18.5098 14.73 18.5098 17.1Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/> </svg>';
-        }
+//        }
         echo '</a>';
 
     }

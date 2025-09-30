@@ -1,0 +1,244 @@
+@use "../mixins" as *;
+@use "../variables" as *;
+
+.mfn-header-login {
+  max-width: 350px;
+  width: 100%;
+  box-sizing: border-box;
+
+  h4 {
+    font-family: $archivo;
+    font-weight: 200;
+    font-size: 40px;
+    line-height: 44px;
+    margin-bottom: 27px;
+  }
+
+  .woocommerce-form-login {
+    .form-row {
+      &.form-row-first, &.form-row-last {
+        &:after {
+          display: none;
+        }
+
+        input {
+          border: 1px solid rgba(229, 229, 229, 1);
+          border-radius: 0;
+
+          &.input-text {
+            padding: 16px;
+          }
+        }
+
+        label {
+          position: relative;
+          padding: 0;
+          left: 0;
+          top: unset;
+          transform: unset;
+          font-family: $archivo;
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+        &.active {
+          label {
+            position: relative;
+            padding: 0;
+            left: 0;
+            top: unset;
+            transform: unset;
+            opacity: 1;
+            font-size: 16px;
+          }
+        }
+      }
+
+      &.form-row-last {
+        padding-top: 5px;
+
+        button {
+          &:before {
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'><path d='M10.5856 10.5869C10.2105 10.9621 9.99991 11.4708 10 12.0013C10.0001 12.5317 10.2109 13.0404 10.5861 13.4154C10.9612 13.7904 11.47 14.0011 12.0004 14.001C12.5309 14.0009 13.0395 13.7901 13.4146 13.4149' stroke='black' stroke-linecap='round' stroke-linejoin='round'/><path d='M16.681 16.673C15.2782 17.5507 13.6547 18.0109 12 18C8.4 18 5.4 16 3 12C4.272 9.88003 5.712 8.32203 7.32 7.32603M10.18 6.18003C10.779 6.05876 11.3888 5.99845 12 6.00003C15.6 6.00003 18.6 8.00003 21 12C20.334 13.11 19.621 14.067 18.862 14.87' stroke='black' stroke-linecap='round' stroke-linejoin='round'/><path d='M3 3L21 21' stroke='black' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+          }
+        }
+      }
+    }
+
+    .remember-and-lost {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      gap: 15px;
+      align-items: center;
+      padding: 15px 0;
+
+      input {
+        border: 1px solid rgba(222, 222, 222, 1);
+        width: 20px;
+        height: 20px;
+        transform: unset;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        cursor: pointer;
+
+        &:checked {
+          background-color: #000;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8' fill='none'%3E%3Cpath d='M1.26758 3.99992L4.46758 6.66659L8.73425 1.33325' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E");
+        }
+      }
+
+      * {
+        font-family: $archivo;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      label {
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+      }
+
+      a {
+        padding: 0;
+      }
+    }
+
+    .woocommerce-form-login {
+      &__submit {
+        background: #000;
+        color: #fff;
+        font-family: $archivo;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        transition: all 0.3s;
+        border: 1px solid #000;
+
+        &:hover {
+          transition: all 0.3s;
+          background: #fff;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  .create_account {
+    font-family: $archivo;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000;
+
+    a {
+      text-decoration: underline;
+      font-family: $archivo;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      color: #000 !important;
+    }
+  }
+}
+
+.woocommerce {
+  &.woocommerce-register-page {
+    padding: 32px;
+    border: 1px solid rgba(229, 229, 229, 1);
+
+    h1 {
+      font-family: $archivo;
+      font-weight: 200;
+      font-size: 40px;
+      line-height: 44px;
+      color: #000;
+    }
+
+    p, .woocommerce-privacy-policy-text {
+      font-family: $archivo;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      color: #000;
+      text-align: left;
+      margin: 0;
+    }
+
+    .woocommerce-form-register.register {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-top: 24px;
+
+      @include respond-to(768px) {
+        flex-direction: column;
+      }
+
+      wc-order-attribution-inputs {
+        display: none;
+      }
+
+      button[type="submit"] {
+        background: #000;
+        color: #fff;
+        font-family: $archivo;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        transition: all 0.3s;
+        border: 1px solid #000;
+        width: fit-content;
+        padding: 16px 80px;
+        @include respond-to(768px) {
+          width: 100%;
+        }
+
+        &:hover {
+          transition: all 0.3s;
+          background: #fff;
+          color: #000;
+        }
+      }
+
+      label {
+        position: relative;
+        padding: 0;
+        left: 0;
+        top: unset;
+        transform: unset;
+        font-family: $archivo;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      input {
+        border: 1px solid rgba(229, 229, 229, 1);
+        border-radius: 0;
+        padding: 16px;
+      }
+
+      .show-password-input {
+        &:before {
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'><path d='M10.5856 10.5869C10.2105 10.9621 9.99991 11.4708 10 12.0013C10.0001 12.5317 10.2109 13.0404 10.5861 13.4154C10.9612 13.7904 11.47 14.0011 12.0004 14.001C12.5309 14.0009 13.0395 13.7901 13.4146 13.4149' stroke='black' stroke-linecap='round' stroke-linejoin='round'/><path d='M16.681 16.673C15.2782 17.5507 13.6547 18.0109 12 18C8.4 18 5.4 16 3 12C4.272 9.88003 5.712 8.32203 7.32 7.32603M10.18 6.18003C10.779 6.05876 11.3888 5.99845 12 6.00003C15.6 6.00003 18.6 8.00003 21 12C20.334 13.11 19.621 14.067 18.862 14.87' stroke='black' stroke-linecap='round' stroke-linejoin='round'/><path d='M3 3L21 21' stroke='black' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+        }
+      }
+
+      .woocommerce-form-row {
+        max-width: calc(50% - 12px);
+
+        @include respond-to(768px) {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

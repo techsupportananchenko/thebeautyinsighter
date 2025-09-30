@@ -122,3 +122,22 @@ function save_aktivists_custom_fields($user_id)
         update_user_meta($user_id, $checkbox, $value);
     }
 }
+
+function wc_register_form_only_shortcode() {
+    if ( is_admin() ) return;
+
+    if ( is_user_logged_in() ) {
+        return '<p>You are already registered and logged in.</p>';
+    }
+
+    if ( 'yes' !== get_option( 'woocommerce_enable_myaccount_registration' ) ) {
+        return '<p>Registration is disabled.</p>';
+    }
+
+    ob_start();
+
+    get_template_part('template-parts/form', 'register');
+
+    return ob_get_clean();
+}
+add_shortcode( 'wc_register_form', 'wc_register_form_only_shortcode' );
