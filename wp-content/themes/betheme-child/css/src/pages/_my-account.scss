@@ -1,7 +1,7 @@
 @use '../mixins' as *;
 @use '../variables' as *;
 
-.woocommerce-account {
+.woocommerce-account, .woocommerce-page {
   #Subheader {
     background: #F7F7F7;
     padding: 48px 0;
