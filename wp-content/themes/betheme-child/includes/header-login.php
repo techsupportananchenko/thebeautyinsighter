@@ -46,8 +46,9 @@ if( $has_user ){
       echo woocommerce_login_form();
       $opt_reg = get_option( 'woocommerce_enable_myaccount_registration' );
       if( $opt_reg == 'yes' ){
-        echo '<p class="create_account"><a href="'.get_permalink( get_option('woocommerce_myaccount_page_id') ).'">';
-          esc_html_e( 'Create an account?', 'woocommerce' );
+          $page = get_page_by_path( 'register' );
+        echo '<p class="create_account">'. __( "Don't have an account yet? ", 'woocommerce' ).'<a href="'.get_permalink( $page->ID ).'">';
+          esc_html_e( 'Register', 'woocommerce' );
         echo '</a></p>';
       }
     } else {

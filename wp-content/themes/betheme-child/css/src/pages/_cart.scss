@@ -1,6 +1,14 @@
 @use '../mixins' as *;
 @use '../variables' as *;
 
+.mfn-cart-holder {
+  h3 {
+    svg {
+      display: none;
+    }
+  }
+}
+
 .woocommerce-cart, .woocommerce-checkout {
   .mfn-checkout-steps {
     margin-bottom: 0 !important;
