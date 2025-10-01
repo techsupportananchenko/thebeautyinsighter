@@ -1,0 +1,292 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.woocommerce-shop {
+  .shop-sidebar {
+
+    .widget_block {
+      margin: 0;
+    }
+
+    h3 {
+      font-family: $archivo;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+      text-transform: uppercase;
+      color: #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+
+    }
+
+    .accordion {
+      border-bottom: 1px solid #DEDEDE;
+
+      .wc-block-product-filter-checkbox-list {
+
+        fieldset {
+          > .wc-block-product-filter-checkbox-list__item {
+            padding-bottom: 16px;
+          }
+        }
+
+        &__input-wrapper {
+          &:before {
+            background: #fff;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #DEDEDE;
+            opacity: 1;
+          }
+        }
+
+        &__input:checked {
+          + .wc-block-product-filter-checkbox-list__mark {
+            background: #000;
+            width: 20px;
+            height: 20px;
+
+            path {
+              stroke-width: 1px;
+              stroke: #fff;
+            }
+          }
+        }
+
+        &__text {
+          font-family: $archivo;
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 24px;
+          color: #4a4a4a;
+        }
+      }
+
+      .wp-block-heading {
+        cursor: pointer;
+        padding: 0 0 calc(16px - 0.625rem) 0;
+        margin: 0;
+
+        &:after {
+          content: "";
+          display: inline-block;
+          width: 14px;
+          cursor: pointer;
+          height: 1px;
+          background: #000;
+        }
+
+        &:before {
+          content: "";
+          display: inline-block;
+          width: 1px;
+          cursor: pointer;
+          height: 14px;
+          background: #000;
+          position: absolute;
+          right: 7px;
+        }
+
+        &.open {
+          &:before {
+            display: none;
+          }
+        }
+      }
+
+      .wp-block-woocommerce-product-filter-checkbox-list {
+        display: none;
+      }
+    }
+
+    .wc-product-filter-radio-shortcode {
+      padding-bottom: 16px;
+      border-bottom: 1px solid #DEDEDE;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        margin: 0;
+        font-family: $archivo;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        color: #4a4a4a;
+
+
+        span {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #DEDEDE;
+            border-radius: 50px;
+          }
+        }
+
+        input {
+          display: none;
+
+          &:checked + span {
+            &:before {
+              border-color: #000;
+            }
+
+            &:after {
+              content: '';
+              position: absolute;
+              width: 12px;
+              height: 12px;
+              display: block;
+              border-radius: 50px;
+              background: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .products_wrapper {
+    .onsale-extra-label {
+      font-family: $archivo;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      vertical-align: middle;
+      padding: 4px 6px !important;
+      border-radius: 0;
+      height: 28px;
+      background: #376099;
+      text-transform: capitalize;
+    }
+
+    .mfn-woo-product-title {
+      font-family: $archivo;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+      text-transform: uppercase;
+      color: #000;
+      text-align: left;
+    }
+
+    .price {
+      text-align: left;
+      font-family: $libre_caslon_text;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: #365E98 !important;
+    }
+
+    .excerpt {
+      font-family: $archivo;
+      font-weight: 300;
+      font-size: 16px;
+      color: #000;
+      line-height: 24px;
+      text-align: left;
+      padding-top: 12px;
+      border-top: 1px solid #DEDEDE;
+      padding-bottom: 15px;
+    }
+
+    .mfn-li-product-row-button {
+      width: 100%;
+
+      .wc-forward {
+        background: #000;
+        color: #fff;
+        font-family: $archivo;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        padding: 16px;
+        width: 100%;
+      }
+    }
+  }
+
+  .pager {
+
+    .pages {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: unset;
+      gap: 4px;
+      margin-top: 5px;
+
+      .page-numbers {
+        font-family: $archivo;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        vertical-align: middle;
+        color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #FAFAFA;
+        border-radius: 0;
+        transition: all 0.3s;
+
+        &:hover {
+          transition: all 0.3s;
+          background: #376099;
+          color: #fff;
+        }
+
+        &.current {
+          color: #fff;
+          background: #376099;
+        }
+      }
+    }
+  }
+
+  .shop-filters {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+
+    .woocommerce-result-count {
+      font-family: $archivo;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 24px;
+      color: #000 !important;
+    }
+
+    .woocommerce-ordering {
+      select {
+        font-family: $archivo;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        color: #000;
+        width: 125px;
+        background-size: 16px;
+      }
+    }
+  }
+}

@@ -13,10 +13,12 @@
 
 load_child_theme_textdomain('mfn-opts', get_stylesheet_directory() . '/languages');
 
-function mfn_load_child_theme_textdomain(){
-	// WPML: use action to allow String Translation to modify text
-	load_child_theme_textdomain('betheme', get_stylesheet_directory() . '/languages');
+function mfn_load_child_theme_textdomain()
+{
+    // WPML: use action to allow String Translation to modify text
+    load_child_theme_textdomain('betheme', get_stylesheet_directory() . '/languages');
 }
+
 add_action('after_setup_theme', 'mfn_load_child_theme_textdomain');
 
 /**
@@ -25,35 +27,36 @@ add_action('after_setup_theme', 'mfn_load_child_theme_textdomain');
 
 function mfnch_enqueue_styles()
 {
-	// enqueue the parent stylesheet
-	// however we do not need this if it is empty
-	// wp_enqueue_style('parent-style', get_template_directory_uri() .'/style.css');
+    // RTL
+    if (is_rtl()) {
+        wp_enqueue_style('mfn-rtl', get_template_directory_uri() . '/rtl.css');
+    }
 
-	// enqueue the parent RTL stylesheet
-
-	if ( is_rtl() ) {
-		wp_enqueue_style('mfn-rtl', get_template_directory_uri() . '/rtl.css');
-	}
-
-	// enqueue the child stylesheet
-
-	wp_dequeue_style('style');
-	wp_enqueue_style('style', get_stylesheet_directory_uri() .'/style.css');
+    // Only enqueue child style if not already added
+    if (!wp_style_is('style', 'enqueued')) {
+        wp_enqueue_style('style', get_stylesheet_directory_uri() . '/style.css');
+    }
 
     // Custom styles
-    wp_enqueue_style('custom-style', get_stylesheet_directory_uri() .'/css/dist/styles.css', [], filemtime(get_stylesheet_directory() . '/css/dist/styles.css'));
+    wp_enqueue_style(
+        'custom-style',
+        get_stylesheet_directory_uri() . '/css/dist/styles.css',
+        [],
+        filemtime(get_stylesheet_directory() . '/css/dist/styles.css')
+    );
 }
-add_action('wp_enqueue_scripts', 'mfnch_enqueue_styles', 101);
+
+add_action('wp_enqueue_scripts', 'mfnch_enqueue_styles', 20);
 
 /*
  * Custom Code
  */
 
 // remove downloads menu item from user dashboard
-add_filter( 'woocommerce_account_menu_items', function( $menu_links ) {
-    unset( $menu_links['downloads'] );
+add_filter('woocommerce_account_menu_items', function ($menu_links) {
+    unset($menu_links['downloads']);
     return $menu_links;
-}, 999 );
+}, 999);
 
 // My account form save
 
@@ -123,14 +126,15 @@ function save_aktivists_custom_fields($user_id)
     }
 }
 
-function wc_register_form_only_shortcode() {
-    if ( is_admin() ) return;
+function wc_register_form_only_shortcode()
+{
+    if (is_admin()) return;
 
-    if ( is_user_logged_in() ) {
+    if (is_user_logged_in()) {
         return '<p>You are already registered and logged in.</p>';
     }
 
-    if ( 'yes' !== get_option( 'woocommerce_enable_myaccount_registration' ) ) {
+    if ('yes' !== get_option('woocommerce_enable_myaccount_registration')) {
         return '<p>Registration is disabled.</p>';
     }
 
@@ -140,4 +144,82 @@ function wc_register_form_only_shortcode() {
 
     return ob_get_clean();
 }
-add_shortcode( 'wc_register_form', 'wc_register_form_only_shortcode' );
+
+add_shortcode('wc_register_form', 'wc_register_form_only_shortcode');
+
+add_filter('woocommerce_loop_add_to_cart_link', function ($button, $product) {
+    $url = get_permalink($product->get_id()); // product URL
+    $label = __('Continue reading', 'woocommerce'); // Button text
+
+    $button = sprintf(
+        '<a href="%s" class="button wc-forward">%s</a>',
+        esc_url($url),
+        esc_html($label)
+    );
+
+    return $button;
+}, 10, 2);
+
+remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
+add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 5);
+
+add_filter('woocommerce_short_description', function ($excerpt) {
+    $limit = 10; // number of words
+    $words = explode(' ', wp_strip_all_tags($excerpt));
+    if (count($words) > $limit) {
+        $excerpt = implode(' ', array_slice($words, 0, $limit)) . '…';
+    }
+    return $excerpt;
+});
+
+function product_filter_radio_shortcode( $atts ) {
+    $atts = shortcode_atts( [
+        'attribute' => '', // taxonomy slug without pa_ prefix
+        'title'     => 'Filter',
+    ], $atts, 'product_filter_radio' );
+
+    if ( empty( $atts['attribute'] ) ) {
+        return '<p><em>No attribute specified.</em></p>';
+    }
+
+    $taxonomy = 'pa_' . sanitize_text_field( $atts['attribute'] );
+    $terms = get_terms( [
+        'taxonomy'   => $taxonomy,
+        'hide_empty' => false, // show empty terms
+    ] );
+
+    if ( is_wp_error( $terms ) || empty( $terms ) ) {
+        return '<p><em>No terms found for this attribute.</em></p>';
+    }
+
+    // Sort terms by product count descending
+    usort( $terms, function( $a, $b ) {
+        return $b->count <=> $a->count;
+    });
+
+    $selected = isset( $_GET[ 'filter_' . $atts['attribute'] ] )
+        ? sanitize_text_field( wp_unslash( $_GET[ 'filter_' . $atts['attribute'] ] ) )
+        : '';
+
+    ob_start();
+    ?>
+    <div class="wc-product-filter-radio-shortcode">
+        <h3><?php echo esc_html( $atts['title'] ); ?></h3>
+        <form method="get" action="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>">
+            <?php foreach ( $terms as $term ) : ?>
+                <label>
+                    <input type="radio"
+                           name="filter_<?php echo esc_attr( $atts['attribute'] ); ?>"
+                           value="<?php echo esc_attr( $term->slug ); ?>"
+                        <?php checked( $selected, $term->slug ); ?>
+                           onclick="this.form.submit();">
+                    <span class="wc-product-filter-radio-text"></span>
+                    <?php echo esc_html( $term->name ); ?>
+                </label>
+            <?php endforeach; ?>
+        </form>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode( 'product_filter_radio', 'product_filter_radio_shortcode' );
