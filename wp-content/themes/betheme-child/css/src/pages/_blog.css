@@ -1,0 +1,8 @@
+.bi-blog__post {
+  background: red;
+}
+.bi-blog__post .e-con-inner > .elementor-element {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
