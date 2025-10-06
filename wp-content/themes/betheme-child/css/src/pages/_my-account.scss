@@ -409,6 +409,13 @@
         }
       }
 
+      span.select2-selection--single {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        background-color: #fff;
+        border: 1px solid #E5E5E5;
+      }
+
       input, select, textarea {
         border: 1px solid #E5E5E5;
         color: #4A4A4A;
