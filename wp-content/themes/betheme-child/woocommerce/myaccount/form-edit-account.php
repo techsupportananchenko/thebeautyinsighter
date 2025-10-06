@@ -195,10 +195,58 @@ do_action('woocommerce_before_edit_account_form');
 
         <p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
             <label for="aktivists_industry"><?php esc_html_e('Industry', 'woocommerce'); ?></label>
-            <input type="text" class="woocommerce-Input woocommerce-Input--text input-text"
-                   name="aktivists_industry" id="aktivists_industry"
-                   value="<?php echo esc_attr(get_user_meta(get_current_user_id(), 'aktivists_industry', true)); ?>"/>
+            <select name="aktivists_industry" id="aktivists_industry"
+                    class="woocommerce-Input woocommerce-Input--select input-select">
+                <?php
+                $industries = array(
+                    'Product design',
+                    'Graphic design',
+                    'Retail design',
+                    'Digital design',
+                    'CGI design',
+                    'Video',
+                    'Photography',
+                    'Retouching/editing',
+                    'Marketing',
+                    'Consultant',
+                    'HR',
+                    'Account manager',
+                    'Content creator',
+                    'Influencer',
+                    'Community manager',
+                    'Packaging manufacturer',
+                    'Glass packaging',
+                    'Plastic packaging',
+                    'Cardboard packaging',
+                    'Metal packaging',
+                    'Perfumer',
+                    'Formulator',
+                    'Chemistry',
+                    'Mixer'
+                );
+
+                $selected_industry = get_user_meta(get_current_user_id(), 'aktivists_industry', true);
+
+                foreach ($industries as $industry) {
+                    printf(
+                        '<option value="%s" %s>%s</option>',
+                        esc_attr($industry),
+                        selected($selected_industry, $industry, false),
+                        esc_html($industry)
+                    );
+                }
+
+                // If saved value isn't in the predefined list, show it as a custom tag
+                if ($selected_industry && !in_array($selected_industry, $industries, true)) {
+                    printf('<option value="%s" selected>%s</option>',
+                        esc_attr($selected_industry),
+                        esc_html($selected_industry)
+                    );
+                }
+                ?>
+            </select>
         </p>
+
         <p class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
             <label for="aktivists_catalog"><?php esc_html_e('Catalog', 'woocommerce'); ?></label>
             <input type="text" class="woocommerce-Input woocommerce-Input--text input-text"
