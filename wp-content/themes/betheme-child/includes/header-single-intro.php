@@ -111,6 +111,7 @@ wp_reset_query();
 
 				<?php if (isset($single_meta['date'])): ?>
 					<div class="date">
+                        at
 						<i class="icon-clock" aria-label="<?php _e('published','betheme'); ?>"></i>
 						<span><?php echo esc_html(get_the_date()); ?></span>
 					</div>
