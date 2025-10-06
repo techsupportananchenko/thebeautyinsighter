@@ -1,0 +1,223 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.single-product {
+  &.woocommerce {
+    .onsale-extra-label {
+      display: none;
+    }
+
+    .price {
+      margin-bottom: 0;
+    }
+
+    .single_add_to_cart_button {
+      width: 100%;
+    }
+
+    .elementor-widget-n-accordion {
+      .e-n-accordion {
+        details {
+          border-bottom: 1px solid #DEDEDE;
+
+          summary {
+            border: 0;
+            padding: 16px 0;
+          }
+
+          &:first-child {
+            border-top: 1px solid #DEDEDE;
+          }
+        }
+      }
+    }
+
+    .woocommerce-Reviews {
+      .woocommerce-Reviews-title {
+        display: none;
+      }
+
+      #respond {
+        .comment-reply-title {
+          font-family: $archivo;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 24px;
+          color: #000;
+        }
+      }
+
+      .comment-form-rating {
+        label {
+          font-family: $archivo;
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 24px;
+          color: #000;
+        }
+      }
+
+      .comment-form {
+        .stars {
+          a {
+            font-family: $archivo;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 24px;
+            color: #000;
+
+            &:before {
+              color: #376099;
+            }
+          }
+        }
+
+        .form-submit {
+          .submit {
+            background: #000;
+            font-family: $archivo;
+            border: 1px solid #000;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%;
+            color: #fff;
+            transition: all 0.3s;
+
+            &:hover {
+              background: #fff;
+              color: #000;
+              transition: all 0.3s;
+            }
+          }
+        }
+      }
+
+      .review {
+        border-radius: 0;
+      }
+
+      .avatar {
+        top: 20px !important;
+      }
+
+      .star-rating {
+        span {
+          &:before {
+            color: #376099;
+          }
+        }
+      }
+
+      .meta {
+        padding-top: 34px !important;
+        padding-bottom: 34px !important;
+
+        .woocommerce-review {
+          &__verified {
+            display: none;
+          }
+
+          &__author {
+            font-family: $archivo;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            color: #000;
+          }
+
+          &__dash {
+            font-family: $archivo;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 24px;
+            color: #4A4A4A;
+          }
+
+          &__published-date {
+            font-family: $archivo;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 24px;
+            color: #4A4A4A;
+          }
+        }
+      }
+
+      .description {
+        font-family: $archivo;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        color: #000;
+        padding: 30px 24px !important;
+
+        * {
+          margin: 0 !important;
+        }
+      }
+    }
+
+    .elementor-widget-woocommerce-product-related {
+      .products {
+        border: 0;
+        padding: 0;
+
+        > h3 {
+          display: none;
+        }
+      }
+
+      .desc {
+        .mfn-woo-product-title {
+          font-family: $archivo;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 24px;
+          text-transform: uppercase;
+          text-align: left;
+          color: #000;
+        }
+
+        .price {
+          display: none;
+        }
+
+        .excerpt {
+          text-align: left;
+          font-family: $archivo;
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 24px;
+          color: #000;
+          border-top: 1px solid #DEDEDE;
+          padding-top: 15px;
+          margin-top: 15px;
+        }
+
+        .mfn-li-product-row-button {
+          width: 100%;
+          padding-top: 15px;
+        }
+
+        .button {
+          font-family: $archivo;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 150%;
+          color: #fff;
+          background: #000;
+          border: 1px solid #000;
+          transition: all 0.3s;
+          width: 100%;
+          border-style: solid !important;
+          padding: 16px;
+
+          &:hover {
+            color: #000;
+            background: #fff;
+          }
+        }
+      }
+    }
+  }
+}

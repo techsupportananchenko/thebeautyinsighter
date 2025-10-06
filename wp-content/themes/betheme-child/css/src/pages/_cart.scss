@@ -3,8 +3,161 @@
 
 .mfn-cart-holder {
   h3 {
+    font-family: $archivo;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+
     svg {
       display: none;
+    }
+  }
+
+  > .mfn-ch-footer {
+    background-color: #FAFAFA !important;
+  }
+
+  .mfn-ch-footer-buttons {
+    a {
+      font-family: $archivo;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #4a4a4a;
+
+      &.button {
+        font-family: $archivo;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: #fff;
+        background: #000;
+        border: 1px solid #000;
+        transition: all 0.3s;
+
+        &:hover {
+          background: #fff;
+          color: #000;
+          transition: all 0.3s;
+        }
+      }
+    }
+  }
+
+  .mfn-chft-row-shipping {
+    display: none !important;
+  }
+
+  .mfn-chft-subtotal {
+    font-family: $archivo;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    vertical-align: bottom;
+    color: #000;
+  }
+
+  .mfn-chft-total {
+    font-family: $archivo;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    vertical-align: bottom;
+    color: #000;
+
+    .woocommerce-Price-amount {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+
+  .mfn-ch-product {
+    background-color: #fafafa !important;
+
+    .mfn-chp-footer {
+      border-color: #f4f4f4;
+      background-color: unset !important;
+
+      .mfn-chp-quantity {
+        display: none;
+      }
+
+      .mfn-chpf-col {
+        &.mfn-chpf-right {
+          text-align: right;
+          padding: 10px;
+
+          .mfn-chp-remove {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            font-family: $archivo;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            vertical-align: bottom;
+            color: #4a4a4a;
+
+
+            &:before {
+              content: '';
+              width: 15px;
+              height: 15px;
+              display: block;
+              background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 15 15' fill='none'><path d='M4.5 3V1.5C4.5 0.947715 4.94772 0.5 5.5 0.5H9.5C10.0523 0.5 10.5 0.947715 10.5 1.5V3M0 3.5H15M1.5 3.5V13.5C1.5 14.0523 1.94772 14.5 2.5 14.5H12.5C13.0523 14.5 13.5 14.0523 13.5 13.5V3.5M7.5 7V12M4.5 9V12M10.5 9V12' stroke='%234A4A4A'/></svg>");
+            }
+
+            i {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .mfn-chp-col {
+      &.mfn-chp-info {
+        border-color: #f4f4f4;
+        justify-content: flex-start;
+
+        a {
+          font-family: $archivo;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          vertical-align: bottom;
+          color: #000;
+        }
+
+        .price {
+          font-family: $archivo;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 16px;
+          color: #4A4A4A;
+
+          span {
+            color: #376099;
+          }
+        }
+      }
+
+      &.mfn-chp-price {
+        span {
+          font-family: $archivo;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 16px;
+          text-align: center;
+          color: #376099;
+        }
+      }
     }
   }
 }
@@ -252,6 +405,7 @@
   .woocommerce {
     .woocommerce-customer-details {
       padding-top: 37px;
+
       &--phone {
         padding-left: 0;
         display: flex;
