@@ -3,6 +3,17 @@
 
 .single-product {
   &.woocommerce {
+    .product-related-posts {
+      .cart {
+        width: 100%;
+      }
+      .button {
+        &.wc-forward {
+          width: 100%;
+        }
+      }
+    }
+
     .onsale-extra-label {
       display: none;
     }
