@@ -41,18 +41,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 jQuery(document).ready(function($) {
     const $select = $('#aktivists_industry');
-    $select.select2({
-        tags: true,
-        placeholder: $select.data('placeholder'),
-        allowClear: false,
-        width: '100%',
-        createTag: function(params) {
-            var term = $.trim(params.term);
-            if (term === '') return null;
-            return { id: term, text: term, newTag: true };
-        },
-        insertTag: function(data, tag) {
-            data.push(tag);
-        }
-    });
+    if ($select.length) {
+        $select.select2({
+            tags: true,
+            placeholder: $select.data('placeholder'),
+            allowClear: false,
+            width: '100%',
+            createTag: function(params) {
+                var term = $.trim(params.term);
+                if (term === '') return null;
+                return { id: term, text: term, newTag: true };
+            },
+            insertTag: function(data, tag) {
+                data.push(tag);
+            }
+        });
+    }
 });

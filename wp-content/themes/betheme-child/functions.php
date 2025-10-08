@@ -41,7 +41,7 @@ function mfnch_enqueue_styles()
     wp_enqueue_style(
         'custom-style',
         get_stylesheet_directory_uri() . '/css/dist/styles.css',
-        [],
+        ['elementor-frontend'],
         filemtime(get_stylesheet_directory() . '/css/dist/styles.css')
     );
 }
