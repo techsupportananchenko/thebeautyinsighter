@@ -48,7 +48,7 @@
         }
       }
 
-      &:nth-child(odd) {
+      &:nth-child(even) {
         .bi-blog {
           &__post {
             background: #F7F7F7;
@@ -131,7 +131,7 @@
   .bi-blog {
     .elementor-loop-container {
       > .post {
-        &:nth-child(even) {
+        &:nth-child(odd) {
           .bi-blog {
             &__post {
               .e-con-inner {
