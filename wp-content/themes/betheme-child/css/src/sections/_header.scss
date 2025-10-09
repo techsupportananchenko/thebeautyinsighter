@@ -20,7 +20,9 @@
 
   #Top_bar {
     .logo {
-      margin-left: 0;
+      @include respond-from(768px) {
+        margin-left: 0;
+      }
     }
 
     #logo {
