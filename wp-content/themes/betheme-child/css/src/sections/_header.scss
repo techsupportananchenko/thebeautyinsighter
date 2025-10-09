@@ -7,13 +7,21 @@
   display: flex;
   align-items: center;
 
+
+  @include respond-to(768px) {
+    min-height: unset !important;
+    height: 60px;
+  }
+
   @include respond-to(1240px) {
     display: flex;
     align-items: center;
   }
 
-  #logo {
-    padding: 0;
+  #Top_bar {
+    #logo {
+      padding: 0;
+    }
   }
 
   .menu_wrapper {
@@ -23,11 +31,13 @@
 
     .responsive-menu-toggle {
       border-radius: 0;
+      background: unset;
+      color: #fff;
     }
   }
 
   .top_bar_right {
-    padding-left: 29px;
+    padding-left: 20px;
 
     #header_cart {
       margin-left: 0;
@@ -41,7 +51,6 @@
   #menu-main-menu {
     display: flex;
     align-items: center;
-    padding-bottom: 4px;
 
     > li {
       > a {
@@ -52,7 +61,7 @@
         line-height: 24px;
 
         > span {
-          padding: 0 17px;
+          padding: 0 12px;
           line-height: inherit;
         }
       }

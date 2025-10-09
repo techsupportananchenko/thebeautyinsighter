@@ -57,4 +57,40 @@ jQuery(document).ready(function($) {
             }
         });
     }
+
+
+    function moveMenu() {
+        const $menu = $('#menu');
+        const $sideMenuWrapper = $('#Side_slide .menu_wrapper');
+        const $headerMenuWrapper = $('#Header .menu_wrapper');
+
+        if ($(window).width() <= 1240) {
+            if (!$sideMenuWrapper.find('#menu').length) {
+                $menu.appendTo($sideMenuWrapper);
+            }
+        } else {
+            if (!$headerMenuWrapper.find('#menu').length) {
+                $menu.appendTo($headerMenuWrapper);
+            }
+        }
+    }
+
+    moveMenu();
+
+    let resizeTimer;
+    $(window).on('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(moveMenu, 200);
+    });
+
+    $('.responsive-menu-toggle').on('click', function(e) {
+        e.preventDefault();
+        $('#Side_slide').css('right', '0');
+        $('body').addClass('side-open');
+    });
+
+    $('#Side_slide .close, .overlay').on('click', function() {
+        $('#Side_slide').removeAttr('style');
+        $('body').removeClass('side-open');
+    });
 });
