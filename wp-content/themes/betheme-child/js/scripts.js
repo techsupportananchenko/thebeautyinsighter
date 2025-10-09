@@ -17,11 +17,23 @@ document.addEventListener('DOMContentLoaded', function() {
     copyButtons.forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
+
             const url = window.location.href;
+            const textEl = btn.querySelector('.elementor-button-text');
+            const originalText = textEl.textContent;
+
+            // Copy link
+            const copyAction = () => {
+                textEl.textContent = 'Copied!'; // change text
+                setTimeout(() => {
+                    textEl.textContent = originalText; // revert text
+                }, 5000);
+            };
 
             if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(url).then(() => {
-                }).catch(err => console.error('Failed to copy: ', err));
+                navigator.clipboard.writeText(url)
+                    .then(copyAction)
+                    .catch(err => console.error('Failed to copy: ', err));
             } else {
                 // Fallback for insecure context
                 const textarea = document.createElement('textarea');
@@ -30,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 textarea.select();
                 try {
                     document.execCommand('copy');
+                    copyAction();
                 } catch (err) {
                     console.error('Fallback: Oops, unable to copy', err);
                 }
@@ -38,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
 
 jQuery(document).ready(function($) {
     const $select = $('#aktivists_industry');

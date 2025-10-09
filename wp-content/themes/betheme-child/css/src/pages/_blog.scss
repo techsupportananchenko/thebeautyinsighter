@@ -89,7 +89,7 @@
       }
 
       &.prev {
-        text-indent: -999999px;
+        font-size: 0;
 
         &:before {
           content: '';
@@ -138,6 +138,15 @@
                 > .elementor-element {
                   flex-direction: row-reverse;
                 }
+              }
+            }
+          }
+        }
+        .bi-blog {
+          &__post {
+            .e-con-inner {
+              > .elementor-element {
+                justify-content: space-between;
               }
             }
           }
