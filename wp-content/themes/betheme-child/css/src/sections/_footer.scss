@@ -7,7 +7,7 @@
 
   .footer_copy {
     .one {
-      padding-top: 19px;
+      padding-top: 24px;
       margin-bottom: 5px;
 
       .mcb-column-inner {
@@ -37,6 +37,11 @@
         text-align: right;
         vertical-align: middle;
         color: #C9C9C9;
+        padding-top: 24px;
+
+        @include respond-from(768px) {
+          padding-top: 0;
+        }
       }
 
       a {
@@ -54,13 +59,14 @@
 .bi-footer {
   &__container {
     display: grid;
-    gap: 50px 24px;
+    gap: 24px;
     max-width: 1344px;
     margin: 0 auto;
-    padding-top: 29px;
+    padding: 10px 4px;
 
     @include respond-from(768px) {
       grid-template-columns: repeat(3, 1fr);
+      padding: 29px 0 0 0;
     }
 
     @include respond-from(1240px) {
@@ -78,16 +84,12 @@
     vertical-align: middle;
     padding-bottom: 16px;
     align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+  }
 
-    @include respond-from(320px) {
-      text-align: center;
-      justify-content: center;
-    }
-
-    @include respond-from(768px) {
-      text-align: left;
-      justify-content: flex-start;
-    }
+  &__column {
+    text-align: left;
   }
 
   &__address {
