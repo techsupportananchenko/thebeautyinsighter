@@ -1,0 +1,72 @@
+@use "../mixins" as *;
+@use "../variables" as *;
+
+.wpcf7 {
+  .column {
+    padding-bottom: 24px;
+  }
+
+  input[type="text"], input[type="email"] {
+    border: 1px solid #E5E5E5;
+    height: 56px;
+    font-family: $archivo;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 16px;
+    color: #4A4A4A;
+    background-color: #FFFFFF;
+
+    &:focus {
+      border-color: #000;
+    }
+  }
+
+  p, span {
+    margin: 0;
+  }
+
+  .wpcf7-submit {
+    font-family: $archivo;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #fff;
+    background: #000;
+    border: 1px solid #000;
+    transition: all 0.3s;
+
+    &:hover {
+      transition: all 0.3s;
+      background: #fff;
+      color: #000;
+      border: 1px solid #000;
+    }
+  }
+
+  label {
+    font-family: $archivo;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #4A4A4A;
+    padding-bottom: 8px;
+    margin: 0;
+  }
+
+  textarea {
+    border: 1px solid #E5E5E5;
+    height: 176px;
+    font-family: $archivo;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 16px;
+    color: #4A4A4A;
+    background-color: #FFFFFF;
+
+    &:focus {
+      border-color: #000;
+    }
+  }
+}
