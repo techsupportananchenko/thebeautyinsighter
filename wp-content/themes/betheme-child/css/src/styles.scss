@@ -19,7 +19,7 @@
 
 .hero {
   &__container {
-    @include respond-from(1024px) {
+    @include respond-from(1025px) {
       &:before {
         content: '';
         display: block;
@@ -57,7 +57,7 @@
       gap: 24px;
       display: grid;
 
-      @include respond-from(768px) {
+      @include respond-from(769px) {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto;
       }

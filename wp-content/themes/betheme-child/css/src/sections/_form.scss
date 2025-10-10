@@ -26,6 +26,10 @@
     margin: 0;
   }
 
+  .wpcf7-form-control-wrap {
+    display: block;
+  }
+
   .wpcf7-submit {
     font-family: $archivo;
     font-weight: 400;
@@ -35,6 +39,7 @@
     background: #000;
     border: 1px solid #000;
     transition: all 0.3s;
+    letter-spacing: normal;
 
     &:hover {
       transition: all 0.3s;
