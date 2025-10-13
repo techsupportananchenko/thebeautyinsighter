@@ -1,4 +1,5 @@
 <div class="woocommerce woocommerce-register-page">
+    <?php wc_print_notices(); ?>
     <h1><?php esc_html_e('Register', 'woocommerce'); ?></h1>
     <p> <?php esc_html_e('Log in to your Beauty Aktivist account to access personalized features, track your activity, and stay up to date with our latest initiatives. Simply enter your registered email and password to sign in. If you’re new, create an account to join our movement and start making an impact.', 'woocommerce'); ?></p>
     <form method="post" class="woocommerce-form woocommerce-form-register register">
@@ -8,7 +9,7 @@
             <label for="reg_email"><?php esc_html_e('Email address', 'woocommerce'); ?>&nbsp;<span
                         class="required">*</span></label>
             <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email"
-                   autocomplete="email" placeholder="<?php esc_html_e('Username or email address', 'woocommerce'); ?>"
+                   autocomplete="email" placeholder="<?php esc_html_e('Email address', 'woocommerce'); ?>"
                    value="<?php echo !empty($_POST['email']) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>"/>
         </p>
 

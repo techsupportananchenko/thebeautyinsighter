@@ -223,3 +223,36 @@ function product_filter_radio_shortcode( $atts ) {
     return ob_get_clean();
 }
 add_shortcode( 'product_filter_radio', 'product_filter_radio_shortcode' );
+
+
+add_action('woocommerce_register_post', function ($username, $email, $errors) {
+    // Check email field
+    if (empty($email) || !is_email($email)) {
+        $errors->add('registration-error-invalid-email', __('Please enter a valid email address.', 'woocommerce'));
+    } elseif (email_exists($email)) {
+        $errors->add('registration-error-email-exists', __('An account is already registered with your email address.', 'woocommerce'));
+    }
+
+    // Optional: Check username if it's not auto-generated
+    if ('no' === get_option('woocommerce_registration_generate_username')) {
+        if (empty($_POST['username'])) {
+            $errors->add('registration-error-missing-username', __('Please enter a username.', 'woocommerce'));
+        } elseif (username_exists($_POST['username'])) {
+            $errors->add('registration-error-username-exists', __('This username is already taken.', 'woocommerce'));
+        }
+    }
+
+    // Optional: Check password if not auto-generated
+    if ('no' === get_option('woocommerce_registration_generate_password')) {
+        if (empty($_POST['password'])) {
+            $errors->add('registration-error-missing-password', __('Please enter a password.', 'woocommerce'));
+        } elseif (strlen($_POST['password']) < 6) {
+            $errors->add('registration-error-weak-password', __('Password must be at least 6 characters.', 'woocommerce'));
+        }
+    }
+
+}, 10, 3);
+
+add_action('woocommerce_registration_redirect', function ($redirect) {
+    return wc_get_page_permalink('myaccount');
+});
