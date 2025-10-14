@@ -13,6 +13,7 @@
     font-size: 40px;
     line-height: 44px;
     margin-bottom: 27px;
+    color: #000;
   }
 
   .woocommerce-form-login {
@@ -41,6 +42,7 @@
           font-weight: 300;
           font-size: 16px;
           line-height: 24px;
+          color: #4a4a4a;
         }
 
         &.active {
@@ -98,6 +100,7 @@
         font-weight: 300;
         font-size: 16px;
         line-height: 24px;
+        color: #000 !important;
       }
 
       label {
@@ -170,8 +173,12 @@
       font-size: 16px;
       line-height: 24px;
       color: #4a4a4a;
-      text-align: left;
+      text-align: left !important;
       margin: 0;
+
+      a {
+        color: #365E98;
+      }
     }
 
     .woocommerce-form-register.register {

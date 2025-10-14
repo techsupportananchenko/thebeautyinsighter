@@ -52,6 +52,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Function to attach close behavior to a notice
+    function attachNoticeClose(notice) {
+        const closeBtn = notice.querySelector('a.close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                notice.remove();
+            });
+        }
+    }
+
+    // Attach to existing notices on page load
+    document.querySelectorAll('.woocommerce-error, .woocommerce-info, .woocommerce-message').forEach(attachNoticeClose);
+
+    // Observe for new notices added dynamically (AJAX)
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            mutation.addedNodes.forEach(function(node) {
+                if (node.nodeType === 1 && (node.classList.contains('woocommerce-error') || node.classList.contains('woocommerce-info') || node.classList.contains('woocommerce-message'))) {
+                    attachNoticeClose(node);
+                }
+            });
+        });
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+});
 
 jQuery(document).ready(function($) {
     const $select = $('#aktivists_industry');
