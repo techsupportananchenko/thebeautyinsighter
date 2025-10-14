@@ -20,6 +20,10 @@
 
   > .mfn-ch-footer {
     background-color: #FAFAFA !important;
+
+    .mfn-ch-footer-totals {
+      margin-bottom: 40px !important;
+    }
   }
 
   .mfn-ch-footer-buttons {
@@ -42,6 +46,7 @@
         transition: all 0.3s;
         letter-spacing: normal;
         padding: 15px;
+        margin-bottom: 10px !important;
 
         &:hover {
           background: #fff;
@@ -167,6 +172,18 @@
   }
 }
 
+.woocommerce-cart {
+  .mfn-checkout-steps {
+    padding-bottom: 60px;
+  }
+
+  #Content {
+    .woocommerce {
+      padding-bottom: 30px;
+    }
+  }
+}
+
 .woocommerce-cart, .woocommerce-checkout {
   .mfn-checkout-steps {
     margin-bottom: 0 !important;
@@ -192,7 +209,7 @@
       padding-top: 0;
 
       @include respond-to(768px) {
-        padding-bottom: 40px;
+        padding-bottom: 0;
       }
 
       .return-to-shop {
@@ -386,6 +403,7 @@
               padding: 16px 0;
               border-bottom: 1px solid #E5E5E5;
               text-transform: capitalize;
+              color: #4a4a4a;
             }
           }
 

@@ -6,6 +6,7 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
+  padding-left: 16px;
 
 
   @include respond-to(768px) {
@@ -20,9 +21,7 @@
 
   #Top_bar {
     .logo {
-      @include respond-from(768px) {
-        margin-left: 0;
-      }
+      margin-left: 0;
     }
 
     #logo {
@@ -106,6 +105,10 @@
       li {
         a {
           color: #000;
+          font-family: $archivo;
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 24px;
         }
 
         &:hover {
