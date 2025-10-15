@@ -33,24 +33,24 @@
       font-size: 16px;
       line-height: 24px;
       text-align: center;
-      color: #4a4a4a;
+      color: #4a4a4a !important;
 
       &.button {
         font-family: $archivo;
         font-weight: 400;
         font-size: 16px;
         line-height: 150%;
-        color: #fff;
+        color: #fff !important;
         background: #000;
         border: 1px solid #000;
         transition: all 0.3s;
         letter-spacing: normal;
         padding: 15px;
-        margin-bottom: 10px !important;
+        margin-bottom: 16px !important;
 
         &:hover {
           background: #fff;
-          color: #000;
+          color: #000 !important;
           transition: all 0.3s;
         }
       }
@@ -87,6 +87,17 @@
 
   .mfn-ch-product {
     background-color: #fafafa !important;
+    padding: 10px;
+
+    .mfn-chp-image {
+      img {
+        width: 90px !important;
+      }
+    }
+
+    > .mfn-chp-info {
+      min-height: 90px !important;
+    }
 
     .mfn-chp-footer {
       border-color: #f4f4f4;
@@ -174,7 +185,7 @@
 
 .woocommerce-cart {
   .mfn-checkout-steps {
-    padding-bottom: 60px;
+    padding-bottom: 35px;
   }
 
   #Content {
@@ -558,6 +569,7 @@
           line-height: 24px;
           text-transform: uppercase;
           background-color: unset;
+          color: #4a4a4a;
 
           &.product-price {
             text-align: left;
