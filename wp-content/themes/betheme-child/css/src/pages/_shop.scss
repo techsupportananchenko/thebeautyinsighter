@@ -2,7 +2,58 @@
 @use '../variables' as *;
 
 .woocommerce-shop {
+  .wp-block-buttons>.wp-block-button.has-custom-width .wp-block-button__link {
+    background-color: #000000;
+    font-family: $archivo;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    fill: #FFFFFF;
+    color: #FFFFFF;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #000000;
+    border-radius: 0;
+    padding: 16px 32px 16px 32px !important;
+    &:hover {
+      background: #fff;
+      color: #000;
+    }
+  }
+
+  .elementor-products-nothing-found {
+    font-family: $archivo;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #000;
+    width: 70%;
+    text-align: center;
+
+    @include respond-to(768px) {
+      width: 100%;
+    }
+
+  }
   .shop-sidebar {
+
+    .wc-block-product-filters__open-overlay {
+      span {
+        font-family: $archivo;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+        text-transform: uppercase;
+        color: #000;
+        text-align: left;
+      }
+
+      svg {
+        path {
+          stroke: #000;
+        }
+      }
+    }
 
     .widget_block {
       margin: 0;
@@ -26,6 +77,10 @@
       border-bottom: 1px solid #DEDEDE;
 
       .wc-block-product-filter-checkbox-list {
+
+        &__label {
+          color: #4a4a4a;
+        }
 
         fieldset {
           > .wc-block-product-filter-checkbox-list__item {
@@ -186,6 +241,11 @@
       text-transform: uppercase;
       color: #000;
       text-align: left;
+
+      @include respond-to(768px) {
+        font-size: 16px;
+        line-height: 20px;
+      }
     }
 
     .star-rating {
@@ -199,6 +259,10 @@
       font-size: 16px;
       line-height: 24px;
       color: #365E98 !important;
+      @include respond-to(768px) {
+        font-size: 16px;
+        line-height: 20px;
+      }
     }
 
     .excerpt {
@@ -211,6 +275,11 @@
       padding-top: 12px;
       border-top: 1px solid #DEDEDE;
       padding-bottom: 15px;
+
+      @include respond-to(768px) {
+        font-size: 14px;
+        line-height: 20px;
+      }
     }
 
     .mfn-li-product-row-button {
@@ -223,8 +292,15 @@
         font-weight: 400;
         font-size: 16px;
         line-height: 150%;
-        padding: 16px;
+        padding: 15px 16px;
         width: 100%;
+        border: 1px solid #000;
+        letter-spacing: normal;
+
+        &:hover {
+          background: #fff;
+          color: #000;
+        }
       }
     }
   }
@@ -288,7 +364,7 @@
         font-size: 16px;
         line-height: 24px;
         color: #000;
-        width: 125px;
+        width: auto;
         background-size: 16px;
       }
     }
