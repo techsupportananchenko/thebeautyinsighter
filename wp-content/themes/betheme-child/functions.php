@@ -163,14 +163,14 @@ add_filter('woocommerce_loop_add_to_cart_link', function ($button, $product) {
 remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
 add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 5);
 
-add_filter('woocommerce_short_description', function ($excerpt) {
-    $limit = 10; // number of words
-    $words = explode(' ', wp_strip_all_tags($excerpt));
-    if (count($words) > $limit) {
-        $excerpt = implode(' ', array_slice($words, 0, $limit)) . '…';
-    }
-    return $excerpt;
-});
+//add_filter('woocommerce_short_description', function ($excerpt) {
+//    $limit = 10; // number of words
+//    $words = explode(' ', wp_strip_all_tags($excerpt));
+//    if (count($words) > $limit) {
+//        $excerpt = implode(' ', array_slice($words, 0, $limit)) . '…';
+//    }
+//    return $excerpt;
+//});
 
 function product_filter_radio_shortcode( $atts ) {
     $atts = shortcode_atts( [
