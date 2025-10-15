@@ -54,12 +54,13 @@
   .blog-teaser {
     ul {
       grid-template-columns: 1fr;
-      gap: 24px;
+      gap: 16px;
       display: grid;
 
       @include respond-from(769px) {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto;
+        gap: 24px;
       }
 
       @include respond-from(992px) {
@@ -80,9 +81,13 @@
 
         .desc-wrapper {
           .desc {
-            padding-bottom: 10px;
+            padding-bottom: 16px;
             padding-left: 16px;
             padding-right: 16px;
+
+            @include respond-to(768px) {
+              padding-bottom: 10px;
+            }
 
             .post-meta {
               margin: 0;
@@ -93,6 +98,7 @@
               display: flex;
               align-items: center;
               color: #BECCD3;
+              margin-bottom: -6px;
 
               .date {
                 display: flex;
@@ -158,7 +164,7 @@
           width: 100%;
           grid-column: 2;
           grid-row: 1;
-          height: 280px;
+          height: 276px;
 
           .desc-wrapper {
             .desc {
