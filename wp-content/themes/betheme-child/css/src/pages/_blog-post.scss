@@ -8,6 +8,10 @@
     .intro-inner {
       padding-top: 80px !important;
       padding-bottom: 40px !important;
+
+      @include respond-to(768px) {
+        padding-top: 60px !important;
+      }
     }
 
     .intro-next {
@@ -79,6 +83,11 @@
       font-size: 16px;
       line-height: 24px;
       font-weight: 300;
+
+      @include respond-to(768px) {
+        font-size: 14px;
+        line-height: 20px;
+      }
     }
 
     h2, h3, h4, h5 {
