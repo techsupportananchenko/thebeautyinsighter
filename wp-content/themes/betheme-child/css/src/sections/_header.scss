@@ -43,14 +43,15 @@
   }
 
   .top_bar_right {
-    padding-left: 20px;
+    padding-left: 16px;
 
     #header_cart {
       margin-left: 0;
     }
 
     .myaccount_button {
-      margin-right: 30px;
+      margin-right: 24px;
+      margin-left: 0;
     }
   }
 
@@ -67,7 +68,7 @@
         line-height: 24px;
 
         > span {
-          padding: 0 12px;
+          padding: 0 16px;
           line-height: inherit;
         }
       }
@@ -98,7 +99,7 @@
 }
 
 #Side_slide {
-  background-color: #fff;
+  background-color: #fff !important;
 
   #menu {
     ul {
