@@ -379,6 +379,16 @@
           }
         }
 
+        @include respond-to(1024px) {
+          max-width: 50%;
+        }
+
+        @include respond-to(768px) {
+          max-width: 100%;
+          margin-left: 0;
+          flex-basis: 100%;
+        }
+
         #order_review_heading {
           font-family: $archivo;
           font-weight: 400;
@@ -452,6 +462,14 @@
         max-width: calc(100% - 570px);
         width: 100%;
         flex-basis: unset;
+
+        @include respond-to(1024px) {
+          max-width: 50%;
+        }
+
+        @include respond-to(768px) {
+          max-width: 100%;
+        }
 
         h3 {
           font-family: $archivo;
