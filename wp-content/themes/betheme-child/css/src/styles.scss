@@ -17,6 +17,14 @@
   max-width: 100% !important;
 }
 
+body {
+  &.side-open {
+    #body_overlay {
+      display: block;
+    }
+  }
+}
+
 .hero {
   &__container {
     @include respond-from(1025px) {
