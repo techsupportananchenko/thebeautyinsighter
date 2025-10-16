@@ -37,6 +37,17 @@
   }
   .shop-sidebar {
 
+    .wc-block-product-filters__close-overlay {
+      font-family: $archivo;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+      text-transform: uppercase;
+      color: #000;
+      text-align: left;
+      letter-spacing: normal;
+    }
+
     .wc-block-product-filters__open-overlay {
       span {
         font-family: $archivo;
@@ -46,6 +57,7 @@
         text-transform: uppercase;
         color: #000;
         text-align: left;
+        letter-spacing: normal;
       }
 
       svg {
@@ -220,6 +232,21 @@
   }
 
   .products_wrapper {
+    ul.products {
+      gap: 2px 24px !important;
+
+      @include respond-to(768px) {
+        li.product .desc {
+          padding-bottom: 0;
+        }
+      }
+
+      @include respond-to(767px) {
+        li.product .desc {
+          padding-bottom: 15px;
+        }
+      }
+    }
     .onsale-extra-label {
       font-family: $archivo;
       font-weight: 400;
@@ -259,8 +286,9 @@
       font-size: 16px;
       line-height: 24px;
       color: #365E98 !important;
+      margin-bottom: 12px !important;
       @include respond-to(768px) {
-        font-size: 16px;
+        font-size: 16px !important;
         line-height: 20px;
       }
     }
