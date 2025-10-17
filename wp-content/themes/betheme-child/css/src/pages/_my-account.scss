@@ -49,6 +49,18 @@
     .woocommerce {
       padding-top: 35px;
       padding-bottom: 110px;
+      display: flex;
+
+      @include respond-to(992px) {
+        flex-direction: column;
+      }
+
+      @include respond-to(768px) {
+        padding-bottom: 50px;
+      }
+      @include respond-to(767px) {
+        padding-bottom: 35px;
+      }
     }
   }
 
@@ -58,8 +70,14 @@
     max-width: 320px;
     width: 100%;
 
-    @include respond-to(767px) {
+    @include respond-to(992px) {
       max-width: 100%;
+      margin-bottom: 60px;
+    }
+
+    &-link--customer-logout {
+      margin-top: 0 !important;
+      padding-top: 8px !important;
     }
 
     ul {
@@ -75,6 +93,12 @@
           font-weight: 300;
           font-size: 16px;
           line-height: 24px;
+          color: #4a4a4a;
+
+          &:before {
+            color: #000;
+            font-size: 18px;
+          }
 
           br {
             display: none;
@@ -100,16 +124,26 @@
     width: 100%;
     padding-left: 48px;
 
-    @include respond-to(767px) {
+    @include respond-to(992px) {
       max-width: 100%;
       padding: 0;
+    }
+
+    @include respond-to(768px) {
+      margin: 0;
+    }
+
+    .woocommerce-notices-wrapper {
+      .alert_wrapper {
+        width: 100%;
+      }
     }
 
     a {
       color: #376099;
     }
 
-    .woocommerce-Addresses {
+    //.woocommerce-Addresses {
       .woocommerce-Address {
         max-width: 100%;
         margin: 0;
@@ -159,9 +193,41 @@
           }
         }
       }
-    }
+    //}
 
     .woocommerce-customer-details {
+      max-width: 100%;
+      margin: 0;
+
+      .woocommerce-column__title {
+        text-align: left;
+        font-family: $archivo;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 28px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      address {
+        width: 100%;
+        padding: 20px;
+        border: 1px solid #E5E5E5;
+        font-family: $archivo;
+        font-weight: 300;
+        font-size: 16px;
+        color: #4A4A4A;
+        line-height: 32px;
+
+        p {
+          margin: 0;
+        }
+
+        &:before {
+          display: none;
+        }
+      }
+
       &--phone {
         padding: 0;
         display: flex;
@@ -266,6 +332,7 @@
         line-height: 28px;
         text-align: center;
         text-transform: uppercase;
+        color: #000;
       }
 
       th {
@@ -290,6 +357,10 @@
     .woocommerce-EditAccountForm, .woocommerce-address-fields {
       p {
         margin: 0;
+
+        @include respond-to(768px) {
+         width: 100%;
+        }
       }
 
       &-block {
@@ -297,7 +368,7 @@
         padding: 32px;
         margin-bottom: 24px;
 
-        .section-title {
+        .section-title, .title {
           font-family: $archivo;
           font-weight: 500;
           font-size: 20px;
@@ -313,6 +384,7 @@
           legend {
             margin-bottom: 10px;
             padding-top: 15px;
+            font-size: 20px;
           }
 
           .woocommerce-form-row {
@@ -394,6 +466,10 @@
         &.form-row-first, &.form-row-last {
           max-width: calc(50% - 12px);
           width: 100%;
+
+          @include respond-to(768px) {
+            max-width: 100%;
+          }
         }
 
         em {
@@ -402,6 +478,7 @@
           font-size: 14px;
           line-height: 20px;
           color: #4A4A4A;
+          font-style: normal;
         }
 
         br {
@@ -441,13 +518,35 @@
       }
     }
 
+
+    h2 {
+      font-family: $archivo;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 28px;
+      text-transform: uppercase;
+    }
+
     .woocommerce-address-fields {
-      h2 {
+      .form-row {
+        padding: 12px 0;
+      }
+
+      button[type="submit"] {
         font-family: $archivo;
+        background: #000000;
+        color: #FFFFFF;
         font-weight: 400;
-        font-size: 20px;
-        line-height: 28px;
-        text-transform: uppercase;
+        font-size: 16px;
+        line-height: 150%;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+        border: 1px solid #000;
+
+        &:hover {
+          background: #fff;
+          color: #000;
+        }
       }
     }
 
@@ -461,6 +560,7 @@
       line-height: 150%;
       transition: all 0.3s;
       border: 1px solid #000;
+      letter-spacing: normal;
 
       &:hover {
         transition: all 0.3s;
@@ -473,6 +573,23 @@
   // Orders tab
   .woocommerce-table--order-details {
     &.shop_table {
+      .product-name {
+        a {
+          font-size: 16px;
+          font-weight: 500;
+          color: #4A4A4A;
+          font-family: $archivo;
+        }
+
+        .product-quantity {
+          width: 24px;
+          height: 16px;
+          padding: 2px;
+          font-size: 12px;
+          line-height: 12px;
+        }
+      }
+
       th, td {
         color: #4A4A4A;
         font-family: $archivo;
@@ -489,11 +606,35 @@
     }
   }
 
+  .woocommerce-pagination {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    p {
+      margin: 0;
+    }
+
+    .woocommerce-button {
+      margin: 0;
+      font-family: $archivo;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      padding: 15px 32px;
+      border: 1px solid #000;
+      letter-spacing: normal;
+      width: 130px;
+      text-align: center;
+    }
+  }
+
   .woocommerce-orders-table {
     &.shop_table {
       th {
         padding: 15px 10px;
         line-height: 1;
+        color: #4A4A4A;
       }
     }
 
@@ -512,6 +653,11 @@
           font-weight: 400;
           font-size: 16px;
           line-height: 150%;
+          padding: 15px;
+          border: 1px solid #000;
+          max-width: 99px;
+          width: 100%;
+          letter-spacing: normal;
         }
       }
     }
