@@ -144,54 +144,55 @@
     }
 
     //.woocommerce-Addresses {
-      .woocommerce-Address {
-        max-width: 100%;
-        margin: 0;
+    .woocommerce-Address {
+      max-width: 100%;
+      margin: 0;
 
-        &-title {
-          padding-top: 22px;
+      &-title {
+        padding-top: 22px;
 
-          h2 {
-            text-align: left;
-            font-family: $archivo;
-            font-weight: 400;
-            font-size: 20px;
-            line-height: 28px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-          }
-        }
-
-
-        &-block {
-          padding: 20px;
-          border: 1px solid #E5E5E5;
-
-          > a {
-            text-decoration: underline;
-          }
-
-          p {
-            margin: 0;
-          }
-        }
-
-        address {
-          width: 100%;
+        h2 {
+          text-align: left;
           font-family: $archivo;
-          font-weight: 300;
-          font-size: 16px;
-          color: #4A4A4A;
-          line-height: 32px;
-          padding: 10px 0 0 0;
-          display: flex;
-          flex-direction: column;
-
-          &:before {
-            display: none;
-          }
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 28px;
+          text-transform: uppercase;
+          margin-bottom: 20px;
         }
       }
+
+
+      &-block {
+        padding: 20px;
+        border: 1px solid #E5E5E5;
+
+        > a {
+          text-decoration: underline;
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+
+      address {
+        width: 100%;
+        font-family: $archivo;
+        font-weight: 300;
+        font-size: 16px;
+        color: #4A4A4A;
+        line-height: 32px;
+        padding: 10px 0 0 0;
+        display: flex;
+        flex-direction: column;
+
+        &:before {
+          display: none;
+        }
+      }
+    }
+
     //}
 
     .woocommerce-customer-details {
@@ -358,7 +359,7 @@
         margin: 0;
 
         @include respond-to(768px) {
-         width: 100%;
+          width: 100%;
         }
       }
 
@@ -644,6 +645,13 @@
         font-size: 16px;
         line-height: 24px;
         color: #4A4A4A;
+      }
+
+
+      &-order-number {
+        @include respond-to(768px) {
+          display: block !important;
+        }
       }
 
       &-order-actions {
