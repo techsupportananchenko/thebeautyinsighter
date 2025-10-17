@@ -172,6 +172,11 @@ add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_
 //    return $excerpt;
 //});
 
+add_filter( 'woocommerce_logout_default_redirect_url', 'custom_logout_redirect' );
+function custom_logout_redirect( $redirect_url ) {
+    return home_url(); // Redirects to your site's homepage
+}
+
 function product_filter_radio_shortcode( $atts ) {
     $atts = shortcode_atts( [
         'attribute' => '', // taxonomy slug without pa_ prefix
