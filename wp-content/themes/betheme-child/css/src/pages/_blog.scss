@@ -106,6 +106,7 @@
 
       &.next {
         font-size: 0;
+
         &:before {
           content: '';
           width: 0px;
@@ -135,14 +136,18 @@
         &:nth-child(even) {
           .bi-blog {
             &__post {
-              .e-con-inner {
+              > .e-con-inner {
                 > .elementor-element {
-                  flex-direction: row-reverse;
+                  > .e-con-inner {
+                    display: flex;
+                    flex-direction: row-reverse;
+                  }
                 }
               }
             }
           }
         }
+
         .bi-blog {
           &__post {
             .e-con-inner {
