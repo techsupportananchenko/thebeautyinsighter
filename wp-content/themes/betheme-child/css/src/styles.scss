@@ -236,7 +236,7 @@ body {
         &:nth-child(2),
         &:nth-child(3) {
           @include respond-to(1024px) {
-            height: 240px;
+            height: 280px;
           }
 
           @include respond-to(768px) {
