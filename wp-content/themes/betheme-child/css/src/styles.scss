@@ -167,6 +167,12 @@ body {
           grid-row: 1 / 3;
           height: 585px;
 
+          .desc-wrapper {
+            .desc {
+              padding-bottom: 12px;
+            }
+          }
+
           @include respond-to(992px) {
             grid-column: 1 / -1;
             grid-row: 1;
@@ -235,7 +241,7 @@ body {
         &:nth-child(1),
         &:nth-child(2),
         &:nth-child(3) {
-          @include respond-to(1024px) {
+          @include respond-to(992px) {
             height: 280px;
           }
 
