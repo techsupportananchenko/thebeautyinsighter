@@ -50,6 +50,7 @@
       padding-top: 35px;
       padding-bottom: 110px;
       display: flex;
+      flex-wrap: wrap;
 
       @include respond-to(992px) {
         flex-direction: column;
@@ -60,6 +61,126 @@
       }
       @include respond-to(767px) {
         padding-bottom: 35px;
+      }
+
+      #customer_login {
+        br {
+          display: none;
+        }
+
+        .woocommerce-form-login__rememberme {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          input {
+            border: 1px solid rgb(222, 222, 222);
+            width: 20px;
+            height: 20px;
+            transform: unset;
+            appearance: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+
+            &:checked {
+              &:checked {
+                background-color: #000;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' viewBox='0 0 10 8' fill='none'%3E%3Cpath d='M1.26758 3.99992L4.46758 6.66659L8.73425 1.33325' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E");
+              }
+            }
+          }
+        }
+
+        h2 {
+          font-family: $archivo;
+          font-weight: 200;
+          font-size: 40px;
+          line-height: 44px;
+          color: #000;
+        }
+
+        input {
+          border: 1px solid #E5E5E5;
+          color: #4A4A4A;
+          font-family: $archivo;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          border-radius: 0;
+          padding: 16px;
+        }
+
+        label {
+          color: #4A4A4A;
+          font-family: $archivo;
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 24px;
+          margin-bottom: 8px;
+        }
+
+        button {
+          &[type="submit"] {
+            background-color: #000000;
+            font-family: $archivo;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5;
+            fill: #FFFFFF;
+            color: #FFFFFF;
+            border-style: solid;
+            border-width: 1px 1px 1px 1px;
+            border-color: #000000;
+            border-radius: 0px 0px 0px 0px;
+            padding: 16px 32px 16px 32px;
+            letter-spacing: normal;
+            margin-top: 24px;
+
+            &:hover {
+              color: #000;
+              background-color: #fff;
+            }
+          }
+
+          &.show-password-input {
+            &:before {
+              background-image: url("data:image/svg+xml;utf8,<svg xmlns= 'http://www.w3.org/2000/svg' width= '24' height= '24' viewBox= '0 0 24 24' fill= 'none' ><path d= 'M10.5856 10.5869C10.2105 10.9621 9.99991 11.4708 10 12.0013C10.0001 12.5317 10.2109 13.0404 10.5861 13.4154C10.9612 13.7904 11.47 14.0011 12.0004 14.001C12.5309 14.0009 13.0395 13.7901 13.4146 13.4149' stroke= 'black' stroke-linecap= 'round' stroke-linejoin= 'round' /><path d= 'M16.681 16.673C15.2782 17.5507 13.6547 18.0109 12 18C8.4 18 5.4 16 3 12C4.272 9.88003 5.712 8.32203 7.32 7.32603M10.18 6.18003C10.779 6.05876 11.3888 5.99845 12 6.00003C15.6 6.00003 18.6 8.00003 21 12C20.334 13.11 19.621 14.067 18.862 14.87' stroke= 'black' stroke-linecap= 'round' stroke-linejoin= 'round' /><path d= 'M3 3L21 21' stroke= 'black' stroke-linecap= 'round' stroke-linejoin= 'round' /></svg>");
+              background-position: center;
+              background-size: contain;
+            }
+          }
+        }
+
+        .woocommerce-privacy-policy-text {
+          * {
+            text-align: left !important;
+          }
+
+          font-family: $archivo;
+          font-weight: 300;
+          font-size: 16px;
+          line-height: 24px;
+          color: #4a4a4a;
+          margin: 0;
+
+          a {
+            color: #365E98;
+          }
+        }
+
+        .woocommerce-LostPassword {
+          a {
+            font-family: $archivo;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 24px;
+            color: #365E98;
+            margin: 0;
+          }
+        }
       }
     }
   }
