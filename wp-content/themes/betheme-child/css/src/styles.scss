@@ -44,6 +44,10 @@ body {
 
 .bi-hero {
   &__content {
+    @include respond-from(1440px) {
+      min-height: calc(100vh - (84px + 139px));
+    }
+
     @include respond-to(1024px) {
       background: #001919B2;
       backdrop-filter: blur(18.899999618530273px);
