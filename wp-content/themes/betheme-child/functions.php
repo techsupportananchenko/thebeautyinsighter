@@ -261,3 +261,19 @@ add_action('woocommerce_register_post', function ($username, $email, $errors) {
 add_action('woocommerce_registration_redirect', function ($redirect) {
     return wc_get_page_permalink('myaccount');
 });
+
+// Disable cart, checkout, and "Add to Cart" buttons
+add_action('init', function () {
+    remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
+    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+    remove_action('woocommerce_proceed_to_checkout', 'woocommerce_button_proceed_to_checkout', 20);
+    remove_action('woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20);
+});
+
+// Redirect cart and checkout pages
+add_action('template_redirect', function () {
+    if (is_page(['cart', 'checkout'])) {
+        wp_redirect(home_url());
+        exit;
+    }
+});
